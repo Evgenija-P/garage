@@ -1,0 +1,168 @@
+@import 'tailwindcss';
+
+:root {
+  --background: #fff;
+  --primary: #0b0707;
+  --accent: #ddff00;
+  --lite-grey: #f0f0f0;
+  --grey: #d9d9d9;
+  --dark-grey: #5e5e5e;
+  --surface: #2d2d2d;
+  --surface-dark: #202020;
+  --secondary: #777165;
+  --secondary-lite: #cbc8c2;
+}
+
+@theme {
+  --color-primary: var(--primary);
+  --color-bgColor: var(--background);
+  --color-accent: var(--accent);
+  --color-lite-grey: var(--lite-grey);
+  --color-grey: var(--grey);
+  --color-dark-grey: var(--dark-grey);
+  --color-surface: var(--surface);
+  --color-surface-dark: var(--surface-dark);
+  --color-secondary: var(--secondary);
+  --color-secondary-lite: var(--secondary-lite);
+  /* --shadow-base: 0px 0px 14px 0px rgba(74, 184, 139, 1); */
+  --radius-base: 10px;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* примусове скидання стилів */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  main {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  input {
+    cursor: text;
+  }
+
+  a {
+    outline: none;
+
+    color: inherit;
+    text-decoration: none;
+
+    transition-duration: 250ms;
+    transition-timing-function: ease;
+  }
+
+  button {
+    box-sizing: border-box;
+
+    outline: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+
+    background-color: transparent;
+
+    cursor: pointer;
+    transition-duration: 250ms;
+    transition-timing-function: ease;
+  }
+
+  img {
+    display: block;
+  }
+
+  ul,
+  li,
+  ol {
+    list-style: none;
+  }
+
+  .wrapper {
+    /* margin: 0 auto;
+    padding: 0 15px;
+    width: 100%;
+
+    @media screen and (min-width: 768px) {
+      padding: 0 32px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      padding: 0;
+      width: 1064px;
+    } */
+  }
+
+  .swiper-pagination-bullet {
+    /* width: 6px !important;
+    height: 6px !important;
+    background: var(--color-accent) !important;
+    opacity: 0.3;
+    cursor: pointer; */
+  }
+
+  .swiper-pagination-bullet-active {
+    /* background: var(--color-accent) !important;
+    width: 6px !important;
+    height: 6px !important; */
+  }
+
+  .custom-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+  }
+
+  .custom-bullet {
+    width: 12px;
+    height: 12px;
+    background-color: gray;
+    border-radius: 50%;
+    margin: 4px;
+    cursor: pointer;
+  }
+
+  .swiper-controls {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .swiper-controls .btn-swiper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.body-scroll-lock {
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    touch-action: none;
+    overscroll-behavior: none;
+  }
+}
