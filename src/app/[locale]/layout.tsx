@@ -7,6 +7,7 @@ import { routing } from "@/i18n/routing";
 
 import Header from "@/components/sections/Header";
 import "@/styles/globals.css";
+import { Locales } from "@/types/baseTypes";
 import { jura } from "./fonts";
 
 export const metadata: Metadata = {
@@ -19,9 +20,9 @@ export default async function RootLayout({
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params: { locale: string };
+  params: { locale: Locales };
 }>) {
-  const { locale } = await params;
+  const { locale } = await Promise.resolve(params);
 
   if (!hasLocale(routing.locales, locale)) {
     notFound();
@@ -30,7 +31,7 @@ export default async function RootLayout({
   return (
     <html lang={locale} suppressHydrationWarning className={jura.variable}>
       <body className={`${jura.className} antialiased`}>
-        <NextIntlClientProvider>
+        <NextIntlClientProvider locale={locale}>
           <Header locale={locale} />
           {children}
         </NextIntlClientProvider>

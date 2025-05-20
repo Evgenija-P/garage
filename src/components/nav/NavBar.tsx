@@ -1,51 +1,18 @@
 "use client";
 
+import { navLinks } from "@/constants/navLinks";
 import { Link, usePathname } from "@/i18n/navigation";
 import { Locale } from "@/types/baseTypes";
+import { useTranslations } from "next-intl";
 
-type NavLinks = {
-  title: string;
-  link: string;
-  type: "link" | "id";
-};
 const NavBar = ({ locale }: { locale: Locale }) => {
   const pathname = usePathname();
+  const t = useTranslations("navigation");
 
-  const navLinks: NavLinks[] = [
-    {
-      title: "services & price list",
-      link: "services_and_price",
-      type: "link",
-    },
-    {
-      title: "faq",
-      link: "#faq",
-      type: "id",
-    },
-    {
-      title: "car catalogue",
-      link: "catalogue",
-      type: "link",
-    },
-    {
-      title: "contact us",
-      link: "#contact",
-      type: "id",
-    },
-  ];
-
-  const NavLinkComponent = ({
-    title,
-    link,
-  }: {
-    title: NavLinks["title"];
-    link: NavLinks["link"];
-  }) => {
+  const NavLinkComponent = ({ titleKey }: { titleKey: string }) => {
     return (
-      <p
-        className={`text-sm uppercase font-medium group-hover:underline group-hover:underline-offset-3`}
-      >
-        {title}
+      <p className="text-sm uppercase font-medium group-hover:underline group-hover:underline-offset-3">
+        {t(titleKey)}
       </p>
     );
   };
@@ -64,13 +31,13 @@ const NavBar = ({ locale }: { locale: Locale }) => {
                   className={`group border-b border-transparent  ${isActive ? "border-b-accent hover:border-transparent" : ""}`}
                   key={el.link}
                 >
-                  <NavLinkComponent title={el.title} link={el.link} />
+                  <NavLinkComponent titleKey={el.titleKey} />
                 </Link>
               );
             case "id":
               return (
                 <a href={el.link} className="group" key={el.link}>
-                  <NavLinkComponent title={el.title} link={el.link} />
+                  <NavLinkComponent titleKey={el.titleKey} />
                 </a>
               );
 

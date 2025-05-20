@@ -2,5 +2,11 @@
   "HomePage": {
     "title": "Hello world!",
     "about": "Go to the about page"
+  },
+  "navigation": {
+    "services_and_price": "Послуги та Прайс",
+    "faq": "Питання",
+    "car_catalogue": "Каталог авто",
+    "contact_us": "Контакти"
   }
 }

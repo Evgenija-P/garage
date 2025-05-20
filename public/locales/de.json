@@ -2,5 +2,11 @@
   "HomePage": {
     "title": "Hello world!",
     "about": "Go to the about page"
+  },
+  "navigation": {
+    "services_and_price": "Services & Price List",
+    "faq": "FAQ",
+    "car_catalogue": "Car Catalogue",
+    "contact_us": "Contact Us"
   }
 }
