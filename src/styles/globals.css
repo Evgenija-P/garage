@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 :root {
   --background: #fff;
@@ -51,6 +51,7 @@ body {
     font-size: 18px;
     font-weight: 500;
     line-height: 1.4;
+    color: var(--primary);
   }
 
   main {
@@ -99,18 +100,19 @@ body {
   }
 
   .wrapper {
-    /* margin: 0 auto;
-    padding: 0 15px;
+    margin: 0 auto;
+    padding: 0 20px;
     width: 100%;
 
-    @media screen and (min-width: 768px) {
+    /* @media screen and (min-width: 768px) {
       padding: 0 32px;
-    }
+    } */
 
     @media screen and (min-width: 1280px) {
-      padding: 0;
-      width: 1064px;
-    } */
+      padding: 0 100px;
+      /* width: 1064px; */
+      max-width: 1240px;
+    }
   }
 
   .swiper-pagination-bullet {
@@ -165,4 +167,17 @@ body {
     touch-action: none;
     overscroll-behavior: none;
   }
+}
+
+@keyframes spin-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-paused:hover .spinning-icon {
+  animation-play-state: paused;
 }
