@@ -7,7 +7,6 @@ import { routing } from "@/i18n/routing";
 
 import Header from "@/components/sections/Header";
 import "@/styles/globals.css";
-import { Locales } from "@/types/baseTypes";
 import { jura } from "./fonts";
 
 export const metadata: Metadata = {
@@ -15,14 +14,14 @@ export const metadata: Metadata = {
   description: "Sale and service of cars",
 };
 
-export default async function RootLayout({
-  children,
-  params,
-}: Readonly<{
+type RootLayoutProps = {
   children: React.ReactNode;
-  params: { locale: Locales };
-}>) {
+  params: { locale: string };
+};
+
+export default async function RootLayout({ children, params }: RootLayoutProps) {
   const { locale } = params;
+
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
