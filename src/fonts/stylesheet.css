@@ -1,0 +1,39 @@
+@font-face {
+    font-family: 'SA Thousand';
+    src: url('SAThousandRegular.eot');
+    src: local('SA Thousand'), local('SAThousandRegular'),
+        url('SAThousandRegular.eot?#iefix') format('embedded-opentype'),
+        url('SAThousandRegular.woff2') format('woff2'),
+        url('SAThousandRegular.woff') format('woff'),
+        url('SAThousandRegular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SA Thousand';
+    src: url('SAThousandMedium.eot');
+    src: local('SA Thousand Medium'), local('SAThousandMedium'),
+        url('SAThousandMedium.eot?#iefix') format('embedded-opentype'),
+        url('SAThousandMedium.woff2') format('woff2'),
+        url('SAThousandMedium.woff') format('woff'),
+        url('SAThousandMedium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SA Thousand';
+    src: url('SAThousandLight.eot');
+    src: local('SA Thousand Light'), local('SAThousandLight'),
+        url('SAThousandLight.eot?#iefix') format('embedded-opentype'),
+        url('SAThousandLight.woff2') format('woff2'),
+        url('SAThousandLight.woff') format('woff'),
+        url('SAThousandLight.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+

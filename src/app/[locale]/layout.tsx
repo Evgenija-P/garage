@@ -1,16 +1,17 @@
-import { NextIntlClientProvider, hasLocale } from 'next-intl';
-import { notFound } from 'next/navigation';
+import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { notFound } from "next/navigation";
 
-import type { Metadata } from 'next';
+import type { Metadata } from "next";
 
-import { routing } from '@/i18n/routing';
+import { routing } from "@/i18n/routing";
 
-import '@/styles/globals.css';
-import { jura } from './fonts';
+import Header from "@/components/sections/Header";
+import "@/styles/globals.css";
+import { jura } from "./fonts";
 
 export const metadata: Metadata = {
-  title: 'Garage | Sale and service of cars',
-  description: 'Sale and service of cars',
+  title: "Garage | Sale and service of cars",
+  description: "Sale and service of cars",
 };
 
 export default async function RootLayout({
@@ -28,7 +29,10 @@ export default async function RootLayout({
   return (
     <html lang={locale} suppressHydrationWarning className={jura.variable}>
       <body className={`${jura.className} antialiased`}>
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider>
+          <Header locale={locale} />
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );
