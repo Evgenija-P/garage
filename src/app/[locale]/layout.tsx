@@ -7,6 +7,7 @@ import { routing } from "@/i18n/routing";
 
 import Header from "@/components/sections/Header";
 import "@/styles/globals.css";
+import { Locale } from "@/types/baseTypes";
 import { jura } from "./fonts";
 
 export const metadata: Metadata = {
@@ -16,11 +17,11 @@ export const metadata: Metadata = {
 
 type RootLayoutProps = {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: Locale }>;
 };
 
 export default async function RootLayout({ children, params }: RootLayoutProps) {
-  const { locale } = params;
+  const { locale } = await params;
 
   if (!hasLocale(routing.locales, locale)) {
     notFound();
