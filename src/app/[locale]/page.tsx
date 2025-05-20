@@ -1,9 +1,9 @@
 import Title from "@/components/sections/Title";
-import Buttons from "@/components/sections/UI/buttons/Buttons";
+import Buttons from "@/components/UI/buttons/Buttons";
 
 export default function Home() {
   return (
-    <main className="w-full flex min-h-screen flex-col items-center justify-between p-24 bg-blue-300">
+    <main className="w-full min-h-screen overflow-hidden">
       <Buttons category="primary" type="button" styles="mb-20">
         primary
       </Buttons>

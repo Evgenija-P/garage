@@ -26,6 +26,7 @@ export default async function RootLayout({
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
+
   return (
     <html lang={locale} suppressHydrationWarning className={jura.variable}>
       <body className={`${jura.className} antialiased`}>
