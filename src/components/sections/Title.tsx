@@ -1,20 +1,22 @@
+import { thousand } from '@/app/[locale]/fonts';
 import React from 'react';
 
 interface TitleProps {
   tag?: string;
   styles?: string;
   children: React.ReactNode;
-  textColor?: 'primary' | 'accent';
+  textColor?: 'primary' | 'accent' | 'white';
 }
 
 const Title = ({ tag = 'h3', styles = '', textColor = 'primary', children }: TitleProps) => {
   const textColorVariable = {
     primary: 'text-primary',
     accent: 'text-accent',
+    white: 'text-white',
   };
 
   const textColorClass = textColorVariable[textColor];
-  const textStyle = `${styles} ${textColorClass} uppercase`;
+  const textStyle = `${styles} ${textColorClass} uppercase ${thousand.className}`;
 
   switch (tag) {
     case 'h1':
