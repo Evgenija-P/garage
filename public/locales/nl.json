@@ -2,5 +2,16 @@
   "HomePage": {
     "title": "Hello world!",
     "about": "Go to the about page"
+  },
+  "hero-section-home": {
+    "title": "automax garage — multimerkenservice en autoreparatie",
+    "description": "Wij ontwikkelen en implementeren software voor BMW-voertuigen, waarmee we optimale prestaties, betrouwbaarheid en comfort garanderen.",
+    "img-text": ["Vind jouw", "perfecte", "auto", "voor de beste prijs"]
+  },
+  "navigation": {
+    "services_and_price": "Diensten & Prijzen",
+    "faq": "Vragen",
+    "car_catalogue": "Autocatalogus",
+    "contact_us": "Contact"
   }
 }

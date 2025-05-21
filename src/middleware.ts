@@ -4,7 +4,7 @@ import { routing } from "./i18n/routing";
 export default createMiddleware({
   ...routing,
   // примусово вимикаємо мову, яка обрана у браузері
-  localeDetection: false,
+  // localeDetection: false,
 });
 
 export const config = {

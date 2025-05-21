@@ -2,5 +2,16 @@
   "HomePage": {
     "title": "Hello world!",
     "about": "Go to the about page"
+  },
+  "hero-section-home": {
+    "title": "automax garage — мультибрендовый автосервис и ремонт",
+    "description": "Мы разрабатываем и внедряем программное обеспечение для автомобилей BMW, обеспечивая высокую производительность, надежность и комфорт.",
+    "img-text": ["Найди своё", "идеальное", "авто", "по лучшей цене"]
+  },
+  "navigation": {
+    "services_and_price": "Услуги & Прайс",
+    "faq": "Вопросы",
+    "car_catalogue": "Каталог авто",
+    "contact_us": "Контакты"
   }
 }

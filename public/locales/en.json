@@ -2,5 +2,16 @@
   "HomePage": {
     "title": "Hello world!",
     "about": "Go to the about page"
+  },
+  "hero-section-home": {
+    "title": "automax garage — multibrand car service and repair",
+    "description": "We develop and implement software for BMW vehicles, ensuring top performance, reliability, and comfort.",
+    "img-text": ["Find your", "perfect", "car", "at the best deal"]
+  },
+  "navigation": {
+    "services_and_price": "Services & Pricing",
+    "faq": "FAQ",
+    "car_catalogue": "Car Catalogue",
+    "contact_us": "Contact Us"
   }
 }

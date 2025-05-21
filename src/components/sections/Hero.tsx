@@ -1,42 +1,33 @@
-import { HeroButtonIcon } from "@/assets/icons";
-import { Link } from "@/i18n/navigation";
-import "@/styles/globals.css";
-import { Locale } from "@/types/baseTypes";
-import Image from "next/image";
+import '@/styles/globals.css';
+import { Locale } from '@/types/baseTypes';
+import HeroImageSection from '../HeroImageSection';
+import HeroMenuBlocks from '../HeroMenuBlocks';
+import { useTranslations } from 'next-intl';
+
+const TextWrapper = ({ styles }: { styles?: string }) => {
+  const t = useTranslations('hero-section-home');
+  return (
+    <div className={`flex flex-col ${styles}`}>
+      <h1 className="mt-[30px] mb-[15px] text-[28px] leading-none font-semibold uppercase xl:mb-10 xl:text-[42px]">
+        {t('title')}
+      </h1>
+      <p className="text-justify text-sm leading-[1.2] xl:text-left xl:text-lg">
+        {t('description')}
+      </p>
+    </div>
+  );
+};
 
 const Hero = ({ locale }: { locale: Locale }) => {
   return (
-    <section>
-      <div className="wrapper flex flex-col">
-        <div className="grid grid-cols-2">
-          <div></div>
-          <div className="flex items-center justify-center rounded-base overflow-hidden relative">
-            <Image
-              src="/images/hero-image.png"
-              alt="hero"
-              width={615}
-              height={393}
-              className="object-contain"
-            />
-            <div className="absolute bottom-0 right-0 w-full flex">
-              <h1>
-                <span>Find your</span>
-                <br />
-                perfect <span>car</span>
-                <br />
-                at the best deal
-              </h1>
-              <Link
-                className="w-[120px] h-[120px] rounded-full spin-paused flex items-center justify-center"
-                href={"#"}
-                locale={locale}
-              >
-                <HeroButtonIcon className="spinning-icon w-6 h-6 animate-[spin-slow_5s_linear_infinite]" />
-              </Link>
-            </div>
-          </div>
+    <section className="w-full pb-[50px] xl:pb-[71px]">
+      <div className="wrapper flex flex-col gap-x-[11px] gap-y-[10px]">
+        <div className="grid grid-cols-1 gap-x-[11px] pl-[6px] xl:grid-cols-2">
+          <TextWrapper styles="hidden xl:block mt-[60px] h-[212px] min-w-[440px] max-w-[90%]" />
+          <HeroImageSection locale={locale} />
         </div>
-        <div className="grid grid-cols-2 xl:grid-cols-4"></div>
+        <HeroMenuBlocks locale={locale} />
+        <TextWrapper styles="xl:hidden" />
       </div>
     </section>
   );
