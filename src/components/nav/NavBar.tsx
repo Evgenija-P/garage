@@ -1,40 +1,40 @@
-"use client";
+'use client';
 
-import { navLinks } from "@/constants/navLinks";
-import { Link, usePathname } from "@/i18n/navigation";
-import { Locale } from "@/types/baseTypes";
-import { useTranslations } from "next-intl";
+import { navLinks } from '@/constants/navLinks';
+import { Link, usePathname } from '@/i18n/navigation';
+import { Locale } from '@/types/baseTypes';
+import { useTranslations } from 'next-intl';
 
 const NavBar = ({ locale }: { locale: Locale }) => {
   const pathname = usePathname();
-  const t = useTranslations("navigation");
+  const t = useTranslations('navigation');
 
   const NavLinkComponent = ({ titleKey }: { titleKey: string }) => {
     return (
-      <p className="text-sm uppercase font-medium group-hover:underline group-hover:underline-offset-3">
+      <p className="text-sm font-medium uppercase group-hover:underline group-hover:underline-offset-3">
         {t(titleKey)}
       </p>
     );
   };
 
   return (
-    <nav className="hidden md:flex gap-10 items-center justify-center">
+    <nav className="hidden items-center justify-center gap-10 md:flex">
       {navLinks.map(el => {
         const isActive = pathname.includes(el.link);
         return (() => {
           switch (el.type) {
-            case "link":
+            case 'link':
               return (
                 <Link
                   href={el.link}
                   locale={locale}
-                  className={`group border-b border-transparent  ${isActive ? "border-b-accent hover:border-transparent" : ""}`}
+                  className={`group border-b border-transparent ${isActive ? 'border-b-accent hover:border-transparent' : ''}`}
                   key={el.link}
                 >
                   <NavLinkComponent titleKey={el.titleKey} />
                 </Link>
               );
-            case "id":
+            case 'id':
               return (
                 <a href={el.link} className="group" key={el.link}>
                   <NavLinkComponent titleKey={el.titleKey} />

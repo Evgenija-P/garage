@@ -3,10 +3,15 @@
     "title": "Hello world!",
     "about": "Go to the about page"
   },
+  "hero-section-home": {
+    "title": "automax garage — markenübergreifender Auto-Service und Reparatur",
+    "description": "Wir entwickeln und implementieren Software für BMW-Fahrzeuge, um höchste Leistung, Zuverlässigkeit und Komfort zu gewährleisten.",
+    "img-text": ["Finde dein", "perfektes", "Auto", "zum besten Preis"]
+  },
   "navigation": {
-    "services_and_price": "Services & Price List",
-    "faq": "FAQ",
-    "car_catalogue": "Car Catalogue",
-    "contact_us": "Contact Us"
+    "services_and_price": "Service & Preise",
+    "faq": "Fragen",
+    "car_catalogue": "Autokatalog",
+    "contact_us": "Kontakt"
   }
 }

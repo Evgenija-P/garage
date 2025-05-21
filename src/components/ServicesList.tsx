@@ -1,4 +1,4 @@
-import { navLinks } from "@/constants/navLinks";
+import { navLinks } from '@/constants/navLinks';
 
 const ServicesList = () => {
   return (
