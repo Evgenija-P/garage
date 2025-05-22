@@ -7,7 +7,7 @@ import Title from './Title';
 const Services = ({ locale }: { locale: Locale }) => {
   const t = useTranslations();
   return (
-    <section className="relative mb-[200px] h-[678px] w-full bg-surface-dark pt-10 xl:h-[570px] xl:bg-surface xl:pt-0">
+    <section className="relative mb-[100px] h-[678px] w-full bg-surface-dark pt-10 xl:h-[570px] xl:bg-surface xl:pt-0">
       <div className="relative z-[5] mx-auto min-w-[390px] xl:w-[1440px]">
         <Title
           tag="h2"

@@ -1,4 +1,5 @@
 import Arrivals from '@/components/sections/Arrivals';
+import Benefits from '@/components/sections/Benefits';
 import Hero from '@/components/sections/Hero';
 import Services from '@/components/sections/Services';
 import { Locale } from '@/types/baseTypes';
@@ -11,6 +12,7 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
       <Hero locale={locale} />
       {/* <Arrivals locale={locale} /> */}
       <Services locale={locale} />
+      <Benefits locale={locale} />
     </main>
   );
 }

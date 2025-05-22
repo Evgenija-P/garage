@@ -50,7 +50,13 @@ const Title = ({ tag = 'h3', styles = '', textColor = 'primary', children }: Tit
         </h4>
       );
     case 'h5':
-      return <h5 className={`text-2xl leading-[1] font-medium ${textStyle}`}>{children}</h5>;
+      return (
+        <h5
+          className={`text-lg leading-[1] font-medium xl:text-2xl ${textStyle} ${thousand.className}`}
+        >
+          {children}
+        </h5>
+      );
     case 'h6':
       return (
         <h6 className={`text-lg leading-[1] font-bold xl:text-[28px] ${textStyle}`}>{children}</h6>
