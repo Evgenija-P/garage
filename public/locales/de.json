@@ -13,5 +13,10 @@
     "faq": "Fragen",
     "car_catalogue": "Autokatalog",
     "contact_us": "Kontakt"
-  }
+  },
+  "links_and_buttons_title": {
+    "view_more": "Mehr anzeigen",
+    "explore_our_services": "Unsere Services"
+  },
+  "services": { "title": "Dienstleistungen, die wir anbieten" }
 }

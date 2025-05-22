@@ -1,18 +1,16 @@
-import { NextIntlClientProvider, hasLocale } from "next-intl";
-import { notFound } from "next/navigation";
-
-import type { Metadata } from "next";
-
-import { routing } from "@/i18n/routing";
-
-import Header from "@/components/sections/Header";
-import "@/styles/globals.css";
-import { Locale } from "@/types/baseTypes";
-import { jura } from "./fonts";
+import Header from '@/components/sections/Header';
+import { routing } from '@/i18n/routing';
+import type { Metadata } from 'next';
+import { hasLocale, NextIntlClientProvider } from 'next-intl';
+import { notFound } from 'next/navigation';
+import '@/styles/globals.css';
+import '@/styles/loader.css';
+import { Locale } from '@/types/baseTypes';
+import { jura } from './fonts';
 
 export const metadata: Metadata = {
-  title: "Garage | Sale and service of cars",
-  description: "Sale and service of cars",
+  title: 'Garage | Sale and service of cars',
+  description: 'Sale and service of cars',
 };
 
 type RootLayoutProps = {
@@ -29,7 +27,7 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
 
   return (
     <html lang={locale} suppressHydrationWarning className={jura.variable}>
-      <body className={`${jura.className} antialiased`}>
+      <body className={`${jura.className} relative antialiased`}>
         <NextIntlClientProvider locale={locale}>
           <Header locale={locale} />
           {children}

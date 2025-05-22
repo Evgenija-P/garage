@@ -16,28 +16,36 @@ const Title = ({ tag = 'h3', styles = '', textColor = 'primary', children }: Tit
   };
 
   const textColorClass = textColorVariable[textColor];
-  const textStyle = `${styles} ${textColorClass} uppercase ${thousand.className}`;
+  const textStyle = `${styles} ${textColorClass} uppercase`;
 
   switch (tag) {
     case 'h1':
       return (
-        <h1 className={`text-2xl leading-[1] font-medium xl:text-4xl ${textStyle}`}>{children}</h1>
+        <h1
+          className={`text-2xl leading-[1] font-medium xl:text-4xl ${textStyle} ${thousand.className}`}
+        >
+          {children}
+        </h1>
       );
     case 'h2':
       return (
-        <h2 className={`text-[22px] leading-[1.2] font-medium xl:text-[32px] ${textStyle}`}>
+        <h2
+          className={`text-[20px] leading-[1.2] font-medium xl:text-[32px] ${textStyle} ${thousand.className}`}
+        >
           {children}
         </h2>
       );
     case 'h3':
       return (
-        <h3 className={`text-[28px] leading-[1.4] font-semibold xl:text-[42px] ${textStyle}`}>
+        <h3
+          className={`text-[28px] leading-[1.4] font-semibold xl:text-[42px] ${textStyle} ${thousand.className}`}
+        >
           {children}
         </h3>
       );
     case 'h4':
       return (
-        <h4 className={`text-xl leading-[1.2] font-medium xl:text-[28px] ${textStyle}`}>
+        <h4 className={`text-[18px] leading-[1.2] font-medium xl:text-[28px] ${textStyle}`}>
           {children}
         </h4>
       );

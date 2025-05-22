@@ -13,5 +13,10 @@
     "faq": "Vragen",
     "car_catalogue": "Autocatalogus",
     "contact_us": "Contact"
-  }
+  },
+  "links_and_buttons_title": {
+    "view_more": "Bekijk meer",
+    "explore_our_services": "Ontdek onze diensten"
+  },
+  "services": { "title": "Diensten die wij aanbieden" }
 }

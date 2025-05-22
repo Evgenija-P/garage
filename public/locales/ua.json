@@ -13,5 +13,10 @@
     "faq": "Питання",
     "car_catalogue": "Каталог авто",
     "contact_us": "Контакти"
-  }
+  },
+  "links_and_buttons_title": {
+    "view_more": "Показати більше",
+    "explore_our_services": "Наші послуги"
+  },
+  "services": { "title": "Послуги, які ми пропонуємо" }
 }
