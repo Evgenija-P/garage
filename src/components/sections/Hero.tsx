@@ -1,8 +1,8 @@
 import '@/styles/globals.css';
 import { Locale } from '@/types/baseTypes';
+import { useTranslations } from 'next-intl';
 import HeroImageSection from '../HeroImageSection';
 import HeroMenuBlocks from '../HeroMenuBlocks';
-import { useTranslations } from 'next-intl';
 
 const TextWrapper = ({ styles }: { styles?: string }) => {
   const t = useTranslations('hero-section-home');
@@ -22,7 +22,7 @@ const Hero = ({ locale }: { locale: Locale }) => {
   return (
     <section className="w-full pb-[50px] xl:pb-[71px]">
       <div className="wrapper flex flex-col gap-x-[11px] gap-y-[10px]">
-        <div className="grid grid-cols-1 gap-x-[11px] pl-[6px] xl:grid-cols-2">
+        <div className="grid grid-cols-1 gap-x-[11px] xl:grid-cols-2 xl:pl-[6px]">
           <TextWrapper styles="hidden xl:block mt-[60px] h-[212px] min-w-[440px] max-w-[90%]" />
           <HeroImageSection locale={locale} />
         </div>

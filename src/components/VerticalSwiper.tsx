@@ -7,7 +7,6 @@ import { useEffect, useRef, useState } from 'react';
 import Title from './sections/Title';
 import Links from './UI/links/Links';
 
-
 const slides = [
   {
     title: {
@@ -132,7 +131,7 @@ const VerticalSwiper = ({ locale, buttonLabel }: { locale: Locale; buttonLabel: 
         </Links>
       </div>
       {/* Right Image */}
-      <div className="relative z-[1] h-[300px] w-[390px] overflow-hidden rounded-tl-[200px] xl:h-full xl:w-1/2 xl:rounded-tl-[350px]">
+      <div className="relative z-[1] h-[300px] min-w-[390px] overflow-hidden rounded-tl-[200px] xl:h-full xl:w-1/2 xl:rounded-tl-[350px]">
         <div className="pointer-events-none absolute top-0 left-0 z-[3] h-full w-full rounded-tl-[200px] bg-surface/70 xl:rounded-tl-[350px]" />
 
         {/* Анімоване зображення */}
