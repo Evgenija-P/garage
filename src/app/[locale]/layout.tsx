@@ -5,6 +5,7 @@ import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { notFound } from 'next/navigation';
 import '@/styles/globals.css';
 import '@/styles/loader.css';
+import Footer from '@/components/sections/Footer';
 import { Locale } from '@/types/baseTypes';
 import { jura } from './fonts';
 
@@ -31,6 +32,7 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
         <NextIntlClientProvider locale={locale}>
           <Header locale={locale} />
           {children}
+          <Footer locale={locale} />
         </NextIntlClientProvider>
       </body>
     </html>
