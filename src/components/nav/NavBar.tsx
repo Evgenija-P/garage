@@ -26,8 +26,9 @@ const NavBar = ({ locale }: { locale: Locale }) => {
             case 'link':
               return (
                 <Link
-                  href={el.link}
+                  // href={el.link}
                   locale={locale}
+                  href={`/${el.link}`}
                   className={`group border-b border-transparent ${isActive ? 'border-b-accent hover:border-transparent' : ''}`}
                   key={el.link}
                 >

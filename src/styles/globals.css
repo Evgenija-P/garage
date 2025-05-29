@@ -7,10 +7,10 @@
   --lite-grey: rgb(240, 240, 240);
   --grey: #d9d9d9;
   --dark-grey: #5e5e5e;
-  --surface: rgb(45, 45, 45);
+  --surface: #2d2d2d;
   --surface-dark: #202020;
-  --secondary: rgb(119, 113, 101);
-  --secondary-lite: rgb(203, 200, 194);
+  --secondary: #777165;
+  --secondary-lite: #cbc8c2;
 }
 
 @theme {
@@ -238,4 +238,17 @@ body {
 
 .send-btn:hover .cross-icon {
   fill: var(--color-accent);
+}
+
+.photo-gallery {
+  transform: translateY(10px);
+  opacity: 0;
+  transition:
+    opacity 0.3s ease-out,
+    transform 0.3s ease-out;
+}
+
+.group:hover .photo-gallery {
+  transform: translateY(0);
+  opacity: 1;
 }
