@@ -200,8 +200,11 @@ body {
 .gradient-border-form {
   border: 2px solid;
   border-radius: 10px; /* щоб відповідало твоєму класу rounded-base */
-  border-image-source: linear-gradient(180deg, #0b0707 0%, #ccc9c3 38.5%);
+  border-image-source: linear-gradient(180deg, #a8a399 68%, #0b0707 100%);
   border-image-slice: 1;
+  @media screen and (min-width: 1280px) {
+    border-image-source: linear-gradient(180deg, #0b0707 0%, #ccc9c3 38.5%);
+  }
 }
 
 .form-wrapper {
@@ -220,11 +223,16 @@ body {
   mask-composite: exclude;
   inset: 0;
   border-radius: inherit;
-  background: linear-gradient(180deg, #0b0707 0%, #ccc9c3 38.5%);
-  padding: 2px; /* товщина бордера */
+  background: linear-gradient(180deg, #a8a399 68%, #0b0707 100%);
+  padding: 2px;
   pointer-events: none;
   content: '';
+
+  @media screen and (min-width: 1280px) {
+    background: linear-gradient(180deg, #0b0707 0%, #ccc9c3 38.5%);
+  }
 }
+
 .cross-icon {
   fill: var(--color-primary);
 }

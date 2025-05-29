@@ -1,6 +1,7 @@
 import { Cross } from '@/assets/icons';
 import React from 'react';
 import { FieldErrors, UseFormRegister } from 'react-hook-form';
+import ErrorFormMessage from './ErrorFormMessage';
 
 type InputFieldProps = {
   label: string;
@@ -39,11 +40,7 @@ const InputField = ({
         {...register(name, rules)}
         className={`w-full border-b-[1.5px] border-primary text-base transition-colors duration-300 focus:border-primary/60 focus:outline-none ${className} ${errors[name] ? 'border-red-500' : ''}`}
       />
-      {errors[name] && (
-        <p className="absolute -bottom-[20px] left-2 mt-1 text-sm text-red-500">
-          {errors[name]?.message?.toString()}
-        </p>
-      )}
+      {errors[name] && <ErrorFormMessage information={errors[name]?.message?.toString()} />}
       {clearField && value.trim() !== '' && (
         <button
           type="button"

@@ -1,6 +1,7 @@
 import Arrivals from '@/components/sections/Arrivals';
 import Benefits from '@/components/sections/Benefits';
 import Car from '@/components/sections/Car';
+import ContactUs from '@/components/sections/ContactUs';
 import FAQ from '@/components/sections/FAQ';
 import GetInTouch from '@/components/sections/GetInTouch';
 import Hero from '@/components/sections/Hero';
@@ -19,6 +20,7 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
       <Car />
       <FAQ locale={locale} />
       <GetInTouch />
+      <ContactUs />
     </main>
   );
 }

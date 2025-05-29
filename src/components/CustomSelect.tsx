@@ -1,5 +1,7 @@
-import { Arrow } from '@/assets/icons'; // твоя іконка стрілки
-import React from 'react';
+'use client';
+
+import { SelectIcon } from '@/assets/icons'; // твоя іконка стрілки
+import React, { useState } from 'react';
 import Select, { Props as SelectProps, StylesConfig } from 'react-select';
 
 type Option = {
@@ -7,22 +9,29 @@ type Option = {
   label: string;
 };
 
-type CustomSelectProps = Omit<SelectProps<Option>, 'styles'> & {
-  label?: string; // додано пропс label
+type CustomSelectProps = {
+  label?: string;
+  value: Option | null;
+  onChange: (value: Option | null) => void;
+  options: Option[];
+  placeholder?: string;
+  className?: string;
+  instanceId?: string;
 };
 
 const customStyles: StylesConfig<Option, false> = {
   control: (provided, state) => ({
     ...provided,
+    height: '27px',
+    minHeight: '27px',
     border: 'none',
     borderBottom: '1.5px solid var(--primary)',
     borderRadius: '0',
-    boxShadow: 'none !important', // 💡
-
+    boxShadow: 'none !important',
     cursor: 'pointer',
     backgroundColor: 'var(--background)',
     '&:hover': {
-      borderBottom: '1.5px solid var(--primary)', // 💡 явно зафіксовано
+      borderBottom: '1.5px solid var(--primary)',
     },
     padding: '0 !important',
     color: 'var(--primary)',
@@ -34,11 +43,7 @@ const customStyles: StylesConfig<Option, false> = {
     margin: 0,
     color: 'var(--primary)', // або інший, який ти використовуєш
   }),
-  dropdownIndicator: (provided, state) => ({
-    ...provided,
-    padding: 0,
-    color: state.isFocused ? 'var(--accent)' : 'var(--primary)',
-  }),
+
   placeholder: provided => ({
     ...provided,
     color: '#6B7280',
@@ -68,29 +73,67 @@ const customStyles: StylesConfig<Option, false> = {
     padding: '8px 12px',
     borderBottom: 'none',
   }),
+
   valueContainer: provided => ({
     ...provided,
     padding: '0 !important',
     margin: 0,
+    height: '27px',
+    display: 'flex',
+    alignItems: 'center',
+  }),
+
+  indicatorsContainer: provided => ({
+    ...provided,
+    height: '27px',
+    display: 'flex',
+    alignItems: 'center',
+    // paddingRight: '12px',
+  }),
+
+  dropdownIndicator: (provided, state) => ({
+    ...provided,
+    padding: 0,
+    color: state.isFocused ? 'var(--accent)' : 'var(--primary)',
+    display: 'flex',
+    alignItems: 'center',
   }),
 };
 
-const CustomSelect = ({ label, ...props }: CustomSelectProps) => {
+const CustomSelect = ({
+  label,
+  value,
+  onChange,
+  options,
+  placeholder,
+  instanceId,
+}: CustomSelectProps) => {
+  const [menuIsOpen, setMenuIsOpen] = useState<boolean>(false);
+
   return (
-    <div className="mb-4">
-      {label && <label className="mb-1 block text-base font-semibold text-primary">{label}*</label>}
+    <div className="relative mb-[30px]">
+      {label && <label className="text-base font-semibold text-primary">{label}*</label>}
       <Select
-        {...props}
-        isMulti={false}
+        value={value}
+        onChange={option => onChange(option ?? null)}
+        options={options}
         styles={customStyles}
+        isClearable
+        isSearchable={false}
+        instanceId={instanceId}
+        onMenuOpen={() => setMenuIsOpen(true)}
+        onMenuClose={() => setMenuIsOpen(false)}
+        menuIsOpen={menuIsOpen}
         components={{
-          DropdownIndicator: dropdownProps => (
-            <div style={{ padding: '0 8px' }}>
-              <Arrow />
+          DropdownIndicator: () => (
+            <div
+              className={`${menuIsOpen ? 'rotate-180' : ''} transform cursor-pointer transition-transform duration-300`}
+            >
+              <SelectIcon />
             </div>
           ),
         }}
-        isSearchable={false}
+        placeholder={placeholder}
       />
     </div>
   );
