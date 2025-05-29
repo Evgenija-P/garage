@@ -8,6 +8,7 @@ import CustomSelect from './CustomSelect';
 import ErrorFormMessage from './ErrorFormMessage';
 import InputField from './InputField';
 import Buttons from './UI/buttons/Buttons';
+import Spinner from './UI/loader/Spinner';
 
 type Option = {
   value: string;
@@ -84,7 +85,7 @@ const ContactForm = () => {
     };
 
     try {
-      const response = await fetch(`${BASE_URL}/mail`, {
+      const response = await fetch('/api/send-mail', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -214,7 +215,7 @@ const ContactForm = () => {
                     value={field.value}
                     onChange={option => field.onChange(option)}
                     options={preferOptions}
-                    placeholder="Select prefer"
+                    placeholder="Select a contact method"
                     instanceId="prefer-select"
                   />
                   {fieldState.error && <ErrorFormMessage information={fieldState.error.message} />}
@@ -249,12 +250,18 @@ const ContactForm = () => {
 
           <button
             type="submit"
-            className="group mx-auto flex h-[52px] min-w-[144px] items-center justify-between gap-x-[10px] rounded-full border-[1.5px] border-primary bg-primary pr-[8px] pl-[23px] text-sm font-semibold text-white active:text-accent disabled:pointer-events-none disabled:opacity-80"
+            className={`group mx-auto flex h-[52px] min-w-[144px] items-center justify-between gap-x-[10px] rounded-full border-[1.5px] border-primary bg-primary ${isLoading ? 'px-0' : 'pr-[8px] pl-[23px]'} text-sm font-semibold text-white active:text-accent disabled:pointer-events-none disabled:opacity-80`}
           >
-            Send Message
-            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-white group-hover:bg-accent group-active:-rotate-45 group-active:bg-accent group-disabled:rotate-0 group-disabled:bg-white group-disabled:text-white">
-              <Arrow fill={'fill-(--color-primary)'} />
-            </div>
+            {isLoading ? (
+              <Spinner />
+            ) : (
+              <>
+                Send Message
+                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-white group-hover:bg-accent group-active:-rotate-45 group-active:bg-accent group-disabled:rotate-0 group-disabled:bg-white group-disabled:text-white">
+                  <Arrow fill={'fill-(--color-primary)'} />
+                </div>
+              </>
+            )}
           </button>
         </form>
       )}

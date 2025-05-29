@@ -9,6 +9,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@sendgrid/mail": "^8.1.5",
     "clsx": "^2.1.1",
     "framer-motion": "^12.12.1",
     "next": "15.3.2",

@@ -4,13 +4,13 @@
   --background: #f0f0f0;
   --primary: #0b0707;
   --accent: #ddff00;
-  --lite-grey: #f0f0f0;
+  --lite-grey: rgb(240, 240, 240);
   --grey: #d9d9d9;
   --dark-grey: #5e5e5e;
-  --surface: #2d2d2d;
+  --surface: rgb(45, 45, 45);
   --surface-dark: #202020;
-  --secondary: #777165;
-  --secondary-lite: #cbc8c2;
+  --secondary: rgb(119, 113, 101);
+  --secondary-lite: rgb(203, 200, 194);
 }
 
 @theme {
@@ -24,7 +24,6 @@
   --color-surface-dark: var(--surface-dark);
   --color-secondary: var(--secondary);
   --color-secondary-lite: var(--secondary-lite);
-  /* --shadow-base: 0px 0px 14px 0px rgba(74, 184, 139, 1); */
   --radius-base: 10px;
 }
 
