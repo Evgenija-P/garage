@@ -2,7 +2,7 @@ export type Locale = 'ua' | 'en' | 'ru' | 'de' | 'nl';
 export type Locales = Locale[];
 
 export interface Car {
-  _id: string; // від MongoDB
+  id: string; // від MongoDB
   condition: string;
   drive_unit: string;
   engine_capacity: string;

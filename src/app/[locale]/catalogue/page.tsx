@@ -1,6 +1,14 @@
+import CarsWrapper from '@/components/CarsWrapper';
 import PagePath from '@/components/PagePath';
 import PageTitle from '@/components/PageTitle';
+import { BASE_URL } from '@/constants/APIConfig';
 import { Locale } from '@/types/baseTypes';
+
+async function getAllCars() {
+  const res = await fetch(`${BASE_URL}/cars/`, { cache: 'no-cache' });
+
+  return res.json();
+}
 
 export default async function CarCataloguePage({
   params,
@@ -8,6 +16,8 @@ export default async function CarCataloguePage({
   params: Promise<{ locale: Locale }>;
 }) {
   const { locale } = await params;
+
+  const cars = await getAllCars();
 
   return (
     <main className="relative min-h-screen w-full overflow-hidden">
@@ -17,6 +27,7 @@ export default async function CarCataloguePage({
           <PageTitle>CAR Catalogue</PageTitle>
         </div>
       </section>
+      <CarsWrapper cars={cars} />
     </main>
   );
 }
