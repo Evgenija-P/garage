@@ -43,7 +43,7 @@ export default async function CarByIdPage({
 
           {car && (
             <div className="flex h-[800px] items-center justify-center">
-              <CarCard car={car} />
+              <CarCard car={car} locale={locale} />
             </div>
           )}
         </div>
