@@ -93,7 +93,7 @@ export const CarsWrapper = ({ cars }: CarsWrapperProps) => {
           <FiltersComponent filters={filters} setFilters={setFilters} />
         </div>
 
-        <div className="grid w-full grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid w-full grid-cols-1 items-center gap-5 md:grid-cols-2 xl:grid-cols-3">
           {visibleCars.map(car => (
             <CarCard key={car.custom_id} car={car} />
           ))}

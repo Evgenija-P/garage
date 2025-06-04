@@ -2,7 +2,10 @@ import Title from './Title';
 
 const ContactUs = () => {
   return (
-    <section className="relative min-h-[400px] w-full bg-secondary-lite bg-[url('/images/contact-us-mob.png')] bg-size-[100%_auto] bg-center bg-no-repeat md:pt-0 xl:h-[786px] xl:bg-[url('/images/contact-us.png')] xl:bg-size-[100%]">
+    <section
+      className="relative min-h-[400px] w-full bg-secondary-lite bg-[url('/images/contact-us-mob.png')] bg-size-[100%_auto] bg-center bg-no-repeat md:pt-0 xl:h-[786px] xl:bg-[url('/images/contact-us.png')] xl:bg-size-[100%]"
+      id="contact"
+    >
       <div className="absolute -top-[202px] right-[20px] flex h-[277px] w-[235px] flex-col rounded-base bg-surface px-[15px] py-[30px] md:top-[131px] md:right-1/4 md:min-h-[340px] md:w-[374px] md:px-[30px] md:py-10">
         <Title tag="h2" textColor="accent" styles="mb-5 uppercase ">
           CONTACT US

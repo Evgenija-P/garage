@@ -17,7 +17,7 @@ type ManagerCardProps = {
 
 const ManagerCard = ({ person }: ManagerCardProps) => {
   return (
-    <div className="flex h-[385px] w-[280px] flex-col rounded-base border border-white/60 bg-surface px-[30px] py-10">
+    <div className="flex h-[385px] w-full flex-col rounded-base border border-white/60 bg-surface px-[30px] py-10 xl:w-[280px]">
       <div className="flex w-full flex-col justify-center gap-y-5 border-b border-b-white/60 pb-[30px]">
         <div className="relative mx-auto h-[100px] w-[100px] overflow-hidden rounded-full">
           <Image

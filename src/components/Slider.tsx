@@ -4,11 +4,12 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import { ArrowNav } from '@/assets/icons';
 import { BASE_URL } from '@/constants/APIConfig';
 import { Car, Locale } from '@/types/baseTypes';
 import { useEffect, useState } from 'react';
-import { Navigation } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 import CarCard from './CarCard';
 
 type SliderCarsProps = {
@@ -46,33 +47,54 @@ const Slider = ({ locale }: SliderCarsProps) => {
 
   if (!cars || cars.length === 0) return null;
 
+  const littleCarsArray = cars.slice(0, 7);
+
   return (
-    <div className="relative flex h-full w-full items-center justify-between py-5">
-      <button className="card-swiper-slick-prev group absolute top-1/2 -left-[60px] flex h-[60px] w-[60px] -translate-y-1/2 items-center justify-center rounded-full">
-        <ArrowNav className="rotate-180 fill-primary group-hover:fill-accent" />
-      </button>
-      <Swiper
-        modules={[Navigation]}
-        className="mySwiper h-full w-full"
-        slidesPerView={3}
-        loop={true}
-        navigation={{
-          nextEl: '.card-swiper-slick-next',
-          prevEl: '.card-swiper-slick-prev',
-        }}
-      >
-        {cars.map(car => (
-          <SwiperSlide key={car.id}>
-            <div className="flex h-full items-center justify-center">
+    <>
+      <div className="relative hidden h-full w-full items-center justify-between py-5 xl:flex">
+        <button className="card-swiper-slick-prev group absolute top-1/2 -left-[60px] hidden h-[60px] w-[60px] -translate-y-1/2 items-center justify-center rounded-full xl:flex">
+          <ArrowNav className="rotate-180 fill-primary group-hover:fill-accent" />
+        </button>
+        <Swiper
+          modules={[Navigation]}
+          className="mySwiper h-full w-full"
+          slidesPerView={3}
+          loop={true}
+          navigation={{
+            nextEl: '.card-swiper-slick-next',
+            prevEl: '.card-swiper-slick-prev',
+          }}
+        >
+          {cars.map(car => (
+            <SwiperSlide key={car.id}>
+              <div className="flex h-full items-center justify-center">
+                <CarCard car={car} locale={locale} />
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+        <button className="card-swiper-slick-next group absolute top-1/2 -right-[60px] hidden h-[60px] w-[60px] -translate-y-1/2 items-center justify-center rounded-full xl:flex">
+          <ArrowNav className="fill-primary group-hover:fill-accent" />
+        </button>
+      </div>
+      <div className="relative h-[380px] w-full xl:hidden">
+        <Swiper
+          spaceBetween={10}
+          slidesPerView={1.08}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[Pagination]}
+          className="mySwiper"
+        >
+          {littleCarsArray.map(car => (
+            <SwiperSlide key={car.id} className="!w-[330px]">
               <CarCard car={car} locale={locale} />
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-      <button className="card-swiper-slick-next group absolute top-1/2 -right-[60px] flex h-[60px] w-[60px] -translate-y-1/2 items-center justify-center rounded-full">
-        <ArrowNav className="fill-primary group-hover:fill-accent" />
-      </button>
-    </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </>
   );
 };
 

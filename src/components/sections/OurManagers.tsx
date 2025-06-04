@@ -47,9 +47,9 @@ const OurManagers = () => {
   ];
 
   return (
-    <section className="mb-[100px] w-full">
+    <section className="mb-10 w-full xl:mb-[100px]">
       <div className="wrapper mx-auto">
-        <div className="inset-shadow flex flex-col items-center justify-between rounded-base bg-[rgba(45,45,45,0.04)] p-[60px] backdrop-blur-[15px] xl:flex-row">
+        <div className="inset-shadow flex flex-col items-center justify-between rounded-base bg-[rgba(45,45,45,0.04)] p-5 backdrop-blur-[15px] xl:flex-row xl:p-[60px]">
           {/* LEFT BLOCK */}
           <div className="flex w-full flex-col md:w-[412px]">
             <h3 className="mb-2.5 text-center text-lg leading-[1.2] font-bold uppercase xl:mb-5 xl:text-left xl:text-2xl">

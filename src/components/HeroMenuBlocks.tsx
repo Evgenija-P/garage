@@ -52,7 +52,24 @@ const HeroMenuBlocks = ({ locale }: { locale: Locale }) => {
                   <Arrow className={baseArrowStyles} />
                 </Link>
               ) : (
-                <a href={el.link} className={baseLinkStyles}>
+                <a
+                  href={el.link}
+                  className={baseLinkStyles}
+                  onClick={e => {
+                    e.preventDefault();
+
+                    const targetId = el.link.replace('#', '');
+                    const target = document.getElementById(targetId);
+
+                    if (target) {
+                      target.scrollIntoView({ behavior: 'smooth' });
+
+                      setTimeout(() => {
+                        history.replaceState(null, '', window.location.pathname);
+                      }, 500);
+                    }
+                  }}
+                >
                   <Arrow className={baseArrowStyles} />
                 </a>
               )}

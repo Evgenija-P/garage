@@ -20,7 +20,9 @@ const FirstPrice = ({ price }: { price: number }) => {
 };
 
 const SecondPrice = ({ price }: { price: number }) => {
-  return <p className="text-base leading-none font-bold">{formatEuroPrice(price)}</p>;
+  return (
+    <p className="text-[14px] leading-none font-bold xl:text-base">{formatEuroPrice(price)}</p>
+  );
 };
 
 const CarCard = ({ car, locale }: CarProps) => {
@@ -34,17 +36,25 @@ const CarCard = ({ car, locale }: CarProps) => {
   const carImgURL2 = getCarImage(car.photo_urls[2]);
 
   return (
-    <article className="group flex h-[444px] w-[407px] flex-col overflow-hidden transition-all duration-500 ease-in-out will-change-transform hover:h-[564px] hover:gap-y-2.5">
-      <Link href={`/catalogue/${car.id}`} locale={locale} className="h-full w-full">
-        <div className="h-[220px] w-full overflow-hidden rounded-t-base transition-all duration-500 ease-in-out group-hover:h-[200px] group-hover:rounded-base">
+    <article className="group">
+      <Link
+        href={`/catalogue/${car.id}`}
+        locale={locale}
+        className="flex h-[350px] w-full flex-col overflow-hidden transition-all duration-500 ease-in-out will-change-transform group-hover:h-[564px] group-hover:gap-y-2.5 xl:h-[444px] xl:w-[407px]"
+      >
+        {/* зображення */}
+
+        <div className="h-1/2 w-full overflow-hidden rounded-t-base transition-all duration-500 ease-in-out group-hover:h-[200px] group-hover:rounded-base xl:h-[220px]">
           <Image
             src={carImgURL}
             alt="car"
             width={407}
             height={220}
-            className="h-[220px] w-full object-cover group-hover:h-[200px]"
+            className="h-full w-full object-cover group-hover:h-[200px] xl:h-[220px]"
           />
         </div>
+
+        {/* блок додаткових зображень, видно на десктопі при ховері */}
         <div className="max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out group-hover:max-h-[140px] group-hover:opacity-100">
           <div className="flex items-center justify-center gap-x-2.5">
             <div className="h-[120px] w-1/2 overflow-hidden rounded-base">
@@ -67,8 +77,11 @@ const CarCard = ({ car, locale }: CarProps) => {
             </div>
           </div>
         </div>
-        <div className="flex h-[224px] w-full flex-col gap-[15px] rounded-b-base border-[2px] border-primary px-5 py-[30px] transition-all duration-500 ease-in-out group-hover:rounded-base">
-          <h4 className="text-xl font-bold">{carTitle}</h4>
+
+        {/* блок із основною інфою */}
+
+        <div className="x:gap-[15px] flex h-1/2 w-full flex-col gap-2.5 rounded-b-base border-[2px] border-primary px-2.5 py-[15px] transition-all duration-500 ease-in-out group-hover:rounded-base xl:h-[224px] xl:px-5 xl:py-[30px]">
+          <h4 className="text-base font-bold xl:text-xl">{carTitle}</h4>
           <div className="flex h-[95px] w-full rounded-base bg-[#E8E8E8] py-2.5">
             <div className="flex w-[110px] flex-col justify-between px-2.5">
               <SubTitle text="Price incl. 21% VAT" />
@@ -85,7 +98,7 @@ const CarCard = ({ car, locale }: CarProps) => {
               <SecondPrice price={195.38} />
             </div>
           </div>
-          <p className="text-ark-grey text-base leading-[1.2] font-medium">
+          <p className="text-[14px] leading-[1.2] font-semibold text-dark-grey xl:text-base">
             {car.year} - {car.gearbox} - {car.mileage} km
           </p>
         </div>

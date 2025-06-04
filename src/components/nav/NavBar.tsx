@@ -37,7 +37,25 @@ const NavBar = ({ locale }: { locale: Locale }) => {
               );
             case 'id':
               return (
-                <a href={el.link} className="group" key={el.link}>
+                <a
+                  href={el.link}
+                  className="group"
+                  key={el.link}
+                  onClick={e => {
+                    e.preventDefault();
+
+                    const targetId = el.link.replace('#', '');
+                    const target = document.getElementById(targetId);
+
+                    if (target) {
+                      target.scrollIntoView({ behavior: 'smooth' });
+
+                      setTimeout(() => {
+                        history.replaceState(null, '', window.location.pathname);
+                      }, 500);
+                    }
+                  }}
+                >
                   <NavLinkComponent titleKey={el.titleKey} />
                 </a>
               );
