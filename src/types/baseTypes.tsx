@@ -21,4 +21,10 @@ export interface Car {
   custom_id?: number; // якщо будеш додавати красивий ID
 }
 
-// export type Cars = Car[];
+export type Filters = {
+  yearRanges: string[];
+  mileageRanges: string[];
+  brand?: string;
+  transmission?: string;
+  fuelType?: string;
+};

@@ -1,6 +1,10 @@
-import CarsWrapper from '@/components/CarsWrapper';
+import { CarsWrapper } from '@/components/CarsWrapper';
 import PagePath from '@/components/PagePath';
 import PageTitle from '@/components/PageTitle';
+import Auctions from '@/components/sections/Auctions';
+import ContactUs from '@/components/sections/ContactUs';
+import GetInTouch from '@/components/sections/GetInTouch';
+import OurManagers from '@/components/sections/OurManagers';
 import { BASE_URL } from '@/constants/APIConfig';
 import { Locale } from '@/types/baseTypes';
 
@@ -28,6 +32,10 @@ export default async function CarCataloguePage({
         </div>
       </section>
       <CarsWrapper cars={cars} />
+      <Auctions />
+      <OurManagers />
+      <GetInTouch />
+      <ContactUs />
     </main>
   );
 }

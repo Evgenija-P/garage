@@ -28,7 +28,7 @@ const BenefitsDetails = () => {
     <ul className="mx-auto flex h-fit w-full flex-col flex-wrap gap-2.5 px-6 xl:w-[824px] xl:flex-row xl:px-0">
       {details.map((detail, index) => (
         <li
-          className="benefits-shadow flex w-full flex-col rounded-base bg-[rgba(45,45,45,0.04] p-5 backdrop-blur-[10px] xl:w-[355px] xl:px-[30px] xl:py-10 xl:first:w-[459px] xl:last:w-[459px]"
+          className="inset-shadow flex w-full flex-col rounded-base bg-[rgba(45,45,45,0.04] p-5 backdrop-blur-[10px] xl:w-[355px] xl:px-[30px] xl:py-10 xl:first:w-[459px] xl:last:w-[459px]"
           key={detail.title}
         >
           <Title tag="h5">{detail.title}</Title>

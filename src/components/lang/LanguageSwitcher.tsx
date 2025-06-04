@@ -14,8 +14,6 @@ const LanguageSwitcher = ({ locale }: { locale: Locale }) => {
   const isLocale = routing.locales.includes(firstSegment as Locale);
   const pathWithoutLocale = isLocale ? segments.slice(1).join('/') : segments.join('/');
 
-  console.log(locale);
-
   return (
     <div className="flex w-[196px] items-center justify-between rounded-3xl bg-[#E3E3E3] p-[6px]">
       {routing.locales.map(loc => (

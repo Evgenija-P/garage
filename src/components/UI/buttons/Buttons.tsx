@@ -2,7 +2,7 @@ import { Arrow } from '@/assets/icons';
 import React from 'react';
 
 type ButtonsProps = {
-  category: 'primary' | 'secondary';
+  category: 'primary' | 'secondary' | 'base';
   styles?: string;
   children: React.ReactNode;
   type?: 'button' | 'submit' | 'reset';
@@ -10,11 +10,12 @@ type ButtonsProps = {
   fnc?: () => void;
 };
 
-const baseButtonClass = `min-w-[144px] h-[52px] rounded-full flex gap-x-[10px] items-center border-[1.5px] text-white text-sm font-semibold group disabled:opacity-80 disabled:pointer-events-none`;
+const baseButtonClass = `min-w-[144px] h-[52px] rounded-full flex gap-x-[10px] items-center border-[1.5px] font-semibold group disabled:opacity-80 disabled:pointer-events-none`;
 
 const categoryStyles: Record<ButtonsProps['category'], string> = {
-  primary: `justify-between bg-primary border-primary active:text-accent pl-[23px] pr-[8px]`,
-  secondary: `justify-center bg-transparent border-white hover:text-accent hover:border-accent active:text-primary active:border-accent active:bg-accent `,
+  primary: `justify-between text-white text-sm bg-primary border-primary active:text-accent pl-[23px] pr-[8px]`,
+  secondary: `justify-center text-sm text-white bg-transparent border-white hover:text-accent hover:border-accent active:text-primary active:border-accent active:bg-accent `,
+  base: `justify-center bg-transparent border-primary text-primary hover:text-white hover:bg-primary active:text-white active:border-primary active:bg-primary `,
 };
 
 const arrowWrapperClass = `w-9 h-9 rounded-full flex items-center justify-center bg-white text-white group-hover:bg-accent group-active:bg-accent group-active:-rotate-45 group-disabled:bg-white group-disabled:text-white group-disabled:rotate-0`;

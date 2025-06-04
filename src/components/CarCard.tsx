@@ -1,5 +1,5 @@
-import { BASE_URL_IMG } from '@/constants/APIConfig';
 import formatEuroPrice from '@/helpers/formatEuroPrice';
+import { getCarImage } from '@/helpers/getCarImage';
 import { Link } from '@/i18n/navigation';
 import { Car, Locale } from '@/types/baseTypes';
 import Image from 'next/image';
@@ -29,11 +29,13 @@ const CarCard = ({ car, locale }: CarProps) => {
   const carTitle = `ID ${carID} ${car.make} ${car.model}`;
   const netPrice = car.price - (car.price * 21) / 100;
 
-  const carImgURL = `${BASE_URL_IMG}${car.primary_photo_url}`;
+  const carImgURL = getCarImage(car.primary_photo_url);
+  const carImgURL1 = getCarImage(car.photo_urls[1]);
+  const carImgURL2 = getCarImage(car.photo_urls[2]);
 
   return (
     <article className="group flex h-[444px] w-[407px] flex-col overflow-hidden transition-all duration-500 ease-in-out will-change-transform hover:h-[564px] hover:gap-y-2.5">
-      <Link href={`/cars/${carID}`} locale={locale} className="h-full w-full">
+      <Link href={`/catalogue/${car.id}`} locale={locale} className="h-full w-full">
         <div className="h-[220px] w-full overflow-hidden rounded-t-base transition-all duration-500 ease-in-out group-hover:h-[200px] group-hover:rounded-base">
           <Image
             src={carImgURL}
@@ -47,7 +49,7 @@ const CarCard = ({ car, locale }: CarProps) => {
           <div className="flex items-center justify-center gap-x-2.5">
             <div className="h-[120px] w-1/2 overflow-hidden rounded-base">
               <Image
-                src={`${BASE_URL_IMG}${car.photo_urls[1]}`}
+                src={carImgURL1}
                 alt="car"
                 width={198}
                 height={120}
@@ -56,7 +58,7 @@ const CarCard = ({ car, locale }: CarProps) => {
             </div>
             <div className="h-[120px] w-1/2 overflow-hidden rounded-base">
               <Image
-                src={`${BASE_URL_IMG}${car.photo_urls[2]}`}
+                src={carImgURL2}
                 alt="car"
                 width={198}
                 height={120}
