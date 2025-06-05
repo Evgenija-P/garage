@@ -1,4 +1,5 @@
 import CarCard from '@/components/CarCard';
+import CarPageSwiper from '@/components/CarPageSwiper';
 import PagePath from '@/components/PagePath';
 import PageTitle from '@/components/PageTitle';
 import { BASE_URL } from '@/constants/APIConfig';
@@ -36,18 +37,13 @@ export default async function CarByIdPage({
 
   return (
     <main className="relative min-h-screen w-full overflow-hidden">
-      <section className="w-full">
+      <section className="mb-10 w-full">
         <div className="wrapper mx-auto">
           <PagePath path={`Catalogue / ${carTitle}`} />
           <PageTitle>{carTitle}</PageTitle>
-
-          {car && (
-            <div className="flex h-[800px] items-center justify-center">
-              <CarCard car={car} locale={locale} />
-            </div>
-          )}
         </div>
-      </section>
+      </section>{' '}
+      <CarPageSwiper car={car} />
     </main>
   );
 }

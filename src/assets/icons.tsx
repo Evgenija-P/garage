@@ -221,11 +221,19 @@ export const WhatsApp = () => {
   );
 };
 
-export const ArrowNav = ({ className }: { className?: string }) => {
+export const ArrowNav = ({
+  className,
+  width = '24',
+  height = '40',
+}: {
+  className?: string;
+  width?: string;
+  height?: string;
+}) => {
   return (
     <svg
-      width="24"
-      height="40"
+      width={width}
+      height={height}
       viewBox="0 0 24 40"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -255,6 +263,150 @@ export const Phone = ({ className }: { className?: string }) => {
         d="M4.47044 0.00172603L4.49706 0.00344441C5.02095 0.0468663 5.47597 0.307216 5.89133 0.713048C6.68068 1.48398 8.37566 3.73367 8.50363 4.3459C8.64526 5.02891 8.49383 5.47252 8.04241 6.25724L7.93299 6.45064C7.72584 6.82898 7.69417 6.98521 7.75831 7.16409C8.74394 9.57632 10.4259 11.258 12.8106 12.232C13.0364 12.3138 13.2069 12.2669 13.6842 11.9931L13.9332 11.8522C14.6042 11.4842 15.0294 11.3679 15.6565 11.4985C16.2666 11.6264 18.5176 13.3224 19.2873 14.1108C19.6926 14.5257 19.9535 14.9816 19.999 15.5399C20.0469 16.8972 18.3908 18.8082 17.3805 19.3828C16.2317 20.2046 14.7737 20.191 13.139 19.4301C8.86409 17.6513 2.325 11.1539 0.582383 6.88432L0.478067 6.64549C-0.183628 5.06399 -0.16929 3.69766 0.588982 2.66758C1.28088 1.52176 3.14635 -0.0595114 4.47044 0.00172603ZM4.38962 1.46397L4.30146 1.46849C3.62187 1.55878 2.25903 2.73207 1.80517 3.47834L1.72676 3.59502C1.33578 4.23205 1.3811 5.10687 1.92544 6.3047L2.02947 6.54822C3.785 10.4882 9.86332 16.4822 13.7284 18.0911L13.9412 18.1858C15.0595 18.6598 15.906 18.6388 16.5913 18.1528L16.642 18.1202C16.8541 17.9729 17.3431 17.5285 17.7198 17.0938C18.2489 16.4833 18.5486 15.9239 18.5389 15.6262C18.5283 15.4988 18.4301 15.3271 18.2407 15.1332C17.6685 14.5472 15.5874 12.9791 15.3574 12.9309C15.1399 12.8856 14.9614 12.9465 14.4732 13.2273L14.2276 13.3652C13.5084 13.7531 13.0014 13.8573 12.2851 13.5973C9.50911 12.4643 7.53832 10.4938 6.39328 7.68981C6.12206 6.9401 6.26806 6.40968 6.73971 5.58764L6.85209 5.38993C7.06635 5.00305 7.11169 4.83891 7.07132 4.6442C7.02298 4.41294 5.4559 2.33301 4.86908 1.75988C4.67476 1.57003 4.50402 1.47233 4.37624 1.46174L4.38962 1.46397Z"
         fill="white"
       />
+    </svg>
+  );
+};
+
+export const Zoom = ({ className }: { className?: string }) => {
+  return (
+    <svg
+      width="30"
+      height="30"
+      viewBox="0 0 30 30"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      // className={className}
+    >
+      <rect width="30" height="30" rx="10" fill="white" fillOpacity="0.3" />
+      <g clipPath="url(#clip0_473_8150)">
+        <path
+          d="M16.9287 13.0714L23.3573 6.64282"
+          stroke="white"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M18.2144 6.64282H23.3572V11.7857"
+          stroke="white"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M13.0716 13.0714L6.64307 6.64282"
+          stroke="white"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M11.7859 6.64282H6.64307V11.7857"
+          stroke="white"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M16.9287 16.9285L23.3573 23.357"
+          stroke="white"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M18.2144 23.3572H23.3572V18.2144"
+          stroke="white"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M13.0716 16.9285L6.64307 23.357"
+          stroke="white"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M11.7859 23.3572H6.64307V18.2144"
+          stroke="white"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_473_8150">
+          <rect width="18" height="18" fill="white" transform="translate(6 6)" />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+};
+
+// export const CarPreviewBorder = () => {
+//   return (
+//     <svg
+//       width="208"
+//       height="150"
+//       viewBox="0 0 208 150"
+//       fill="none"
+//       xmlns="http://www.w3.org/2000/svg"
+//     >
+//       <rect
+//         x="1"
+//         y="1"
+//         width="206"
+//         height="148"
+//         rx="14"
+//         stroke="url(#paint0_linear_798_12899)"
+//         strokeWidth="2"
+//       />
+//       <defs>
+//         <linearGradient
+//           id="paint0_linear_798_12899"
+//           x1="104"
+//           y1="0"
+//           x2="104"
+//           y2="150"
+//           gradientUnits="userSpaceOnUse"
+//         >
+//           <stop stopColor="#0B0707" />
+//           <stop offset="1" stopColor="#DDFF00" />
+//         </linearGradient>
+//       </defs>
+//     </svg>
+//   );
+// };
+
+type CarPreviewBorderProps = {
+  strokeColors?: [string, string];
+};
+
+export const CarPreviewBorder = () => {
+  return (
+    <svg
+      width="208"
+      height="150"
+      viewBox="0 0 208 150"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        x="1"
+        y="1"
+        width="206"
+        height="148"
+        rx="14"
+        stroke={`url(#gradient)`}
+        strokeWidth="2"
+      />
+      <defs>
+        <linearGradient
+          id="gradient"
+          x1="104"
+          y1="0"
+          x2="104"
+          y2="150"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#0B0707" />
+          <stop offset="1" stopColor="#DDFF00" />
+        </linearGradient>
+      </defs>
     </svg>
   );
 };
