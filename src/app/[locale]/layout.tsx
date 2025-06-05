@@ -9,6 +9,7 @@ import Footer from '@/components/sections/Footer';
 import { Locale } from '@/types/baseTypes';
 import { jura } from './fonts';
 
+
 export const metadata: Metadata = {
   title: 'Garage | Sale and service of cars',
   description: 'Sale and service of cars',
@@ -32,7 +33,7 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
         <NextIntlClientProvider locale={locale}>
           <Header locale={locale} />
           {children}
-          <Footer locale={locale} />
+          <Footer locale={locale} /> <div id="modal-root"></div>
         </NextIntlClientProvider>
       </body>
     </html>
