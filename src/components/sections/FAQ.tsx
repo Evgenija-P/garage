@@ -38,7 +38,7 @@ const questions = [
 
 const FAQ = ({ locale }: { locale: Locale }) => {
   return (
-    <section className="mb-[60px] min-h-[496px] w-full xl:mb-20">
+    <section className="mb-[60px] min-h-[496px] w-full xl:mb-20" id="faq">
       <div className="wrapper flex min-h-full flex-col justify-center gap-x-5 md:flex-row xl:gap-x-[114px]">
         <div className="flex flex-col items-start justify-between">
           <div className="mb-[30px] flex max-w-[303px] flex-col pl-[15px] md:pl-0">
