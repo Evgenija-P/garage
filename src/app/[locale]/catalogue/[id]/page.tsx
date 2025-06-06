@@ -1,7 +1,10 @@
-import CarCard from '@/components/CarCard';
+import CarDetailsSection from '@/components/CarDetailsSection';
 import CarPageSwiper from '@/components/CarPageSwiper';
 import PagePath from '@/components/PagePath';
 import PageTitle from '@/components/PageTitle';
+import ContactUs from '@/components/sections/ContactUs';
+import GetInTouch from '@/components/sections/GetInTouch';
+import OurManagers from '@/components/sections/OurManagers';
 import { BASE_URL } from '@/constants/APIConfig';
 import { Locale } from '@/types/baseTypes';
 import { notFound } from 'next/navigation';
@@ -42,8 +45,12 @@ export default async function CarByIdPage({
           <PagePath path={`Catalogue / ${carTitle}`} />
           <PageTitle>{carTitle}</PageTitle>
         </div>
-      </section>{' '}
+      </section>
       <CarPageSwiper car={car} />
+      <CarDetailsSection car={car} />
+      <OurManagers />
+      <GetInTouch />
+      <ContactUs />
     </main>
   );
 }

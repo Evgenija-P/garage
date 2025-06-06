@@ -12,6 +12,8 @@ import { Car } from '@/types/baseTypes';
 import Image from 'next/image';
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 import type { Swiper as SwiperInstance } from 'swiper/types';
+import CarDetailedDescriptionData from './CarDetailedDescriptionData';
+import CarPageDetailedDescription from './CarPageDetailedDescription';
 import BaseModal from './UI/modal/Modal';
 
 type CarPageSwiperProps = {
@@ -38,58 +40,61 @@ const CarPageSwiper = ({ car }: CarPageSwiperProps) => {
       <div className="wrapper mx-auto">
         {car.photo_urls.length > 0 ? (
           <>
-            <div className="relative mr-0 h-[403px] w-1/2">
-              <button className="car-page-swiper-prev group absolute top-1/2 -left-[30px] z-[15] hidden h-[60px] w-[60px] -translate-y-1/2 items-center justify-center rounded-full border-[1.5px] border-primary bg-bgColor disabled:cursor-not-allowed disabled:opacity-45 xl:flex">
-                <ArrowNav
-                  className="rotate-180 fill-primary group-hover:fill-accent group-disabled:fill-primary"
-                  width="15"
-                  height="26"
-                />
-              </button>
-              <Swiper
-                onSwiper={setMainSwiper}
-                onSlideChange={swiper => {
-                  if (swiper && swiper.activeIndex !== undefined) {
-                    setActiveIndex(swiper.activeIndex);
-                  }
-                }}
-                spaceBetween={10}
-                navigation={{
-                  nextEl: '.car-page-swiper-next',
-                  prevEl: '.car-page-swiper-prev',
-                }}
-                thumbs={{ swiper: mainThumbsSwiper }}
-                modules={[FreeMode, Navigation, Thumbs]}
-                className="car-details-preview mb-2.5 rounded-base"
-              >
-                {car.photo_urls.map((item, index) => (
-                  <SwiperSlide className="relative">
-                    <Image
-                      src={`${BASE_URL_IMG}${item}`}
-                      width={650}
-                      height={403}
-                      alt="car"
-                      className="h-full w-full object-cover"
-                    />
-                    <button
-                      className="group absolute right-[10px] bottom-[10px] z-[15] h-10 w-10 rounded-full"
-                      onClick={() => {
-                        setActiveIndex(index);
-                        setIsOpen(true);
-                      }}
-                    >
-                      <Zoom className="transition-all duration-300 group-hover:scale-125" />
-                    </button>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-              <button className="car-page-swiper-next group absolute top-1/2 -right-[30px] z-[15] hidden h-[60px] w-[60px] -translate-y-1/2 items-center justify-center rounded-full border-[1.5px] border-primary bg-bgColor disabled:cursor-not-allowed disabled:opacity-45 xl:flex">
-                <ArrowNav
-                  className="fill-primary group-hover:fill-accent group-disabled:fill-primary"
-                  width="15"
-                  height="26"
-                />
-              </button>
+            <div className="grid grid-cols-2 gap-x-2.5">
+              <div className="relative mr-0 h-[403px]">
+                <button className="car-page-swiper-prev group absolute top-1/2 -left-[30px] z-[15] hidden h-[60px] w-[60px] -translate-y-1/2 items-center justify-center rounded-full border-[1.5px] border-primary bg-bgColor disabled:cursor-not-allowed disabled:opacity-45 xl:flex">
+                  <ArrowNav
+                    className="rotate-180 fill-primary group-hover:fill-accent group-disabled:fill-primary"
+                    width="15"
+                    height="26"
+                  />
+                </button>
+                <Swiper
+                  onSwiper={setMainSwiper}
+                  onSlideChange={swiper => {
+                    if (swiper && swiper.activeIndex !== undefined) {
+                      setActiveIndex(swiper.activeIndex);
+                    }
+                  }}
+                  spaceBetween={10}
+                  navigation={{
+                    nextEl: '.car-page-swiper-next',
+                    prevEl: '.car-page-swiper-prev',
+                  }}
+                  thumbs={{ swiper: mainThumbsSwiper }}
+                  modules={[FreeMode, Navigation, Thumbs]}
+                  className="car-details-preview mb-2.5 rounded-base"
+                >
+                  {car.photo_urls.map((item, index) => (
+                    <SwiperSlide className="relative">
+                      <Image
+                        src={`${BASE_URL_IMG}${item}`}
+                        width={650}
+                        height={403}
+                        alt="car"
+                        className="h-full w-full object-cover"
+                      />
+                      <button
+                        className="group absolute right-[10px] bottom-[10px] z-[15] h-10 w-10 rounded-full"
+                        onClick={() => {
+                          setActiveIndex(index);
+                          setIsOpen(true);
+                        }}
+                      >
+                        <Zoom className="transition-all duration-300 group-hover:scale-125" />
+                      </button>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+                <button className="car-page-swiper-next group absolute top-1/2 -right-[30px] z-[15] hidden h-[60px] w-[60px] -translate-y-1/2 items-center justify-center rounded-full border-[1.5px] border-primary bg-bgColor disabled:cursor-not-allowed disabled:opacity-45 xl:flex">
+                  <ArrowNav
+                    className="fill-primary group-hover:fill-accent group-disabled:fill-primary"
+                    width="15"
+                    height="26"
+                  />
+                </button>
+              </div>
+              <CarPageDetailedDescription car={car} />
             </div>
 
             <Swiper
@@ -131,9 +136,16 @@ const CarPageSwiper = ({ car }: CarPageSwiperProps) => {
             </Swiper>
             {isOpen && (
               <BaseModal isOpen={isOpen} onClose={() => setIsOpen(false)} type="baseModal">
+                <button className="car-modal-swiper-prev group absolute top-1/2 -left-[10px] z-[15] hidden h-[60px] w-[60px] -translate-y-1/2 items-center justify-center disabled:cursor-not-allowed disabled:opacity-45 xl:flex">
+                  <ArrowNav
+                    className="rotate-180 fill-primary group-hover:fill-accent group-disabled:fill-primary"
+                    width="25"
+                    height="36"
+                  />
+                </button>
                 <Swiper
                   spaceBetween={10}
-                  navigation={true}
+                  // navigation={true}
                   slidesPerView={1}
                   thumbs={{ swiper: thumbsSwiper }}
                   modules={[FreeMode, Navigation, Thumbs]}
@@ -144,19 +156,30 @@ const CarPageSwiper = ({ car }: CarPageSwiperProps) => {
                     setActiveIndex(swiper.activeIndex);
                     mainSwiper?.slideTo(swiper.activeIndex);
                   }}
+                  navigation={{
+                    nextEl: '.car-modal-swiper-next',
+                    prevEl: '.car-modal-swiper-prev',
+                  }}
                 >
                   {car.photo_urls.map(item => (
                     <SwiperSlide className="flex items-center justify-center">
                       <Image
                         src={`${BASE_URL_IMG}${item}`}
-                        width={650}
+                        width={6250}
                         height={403}
                         alt="car"
                         className="mx-auto my-auto rounded-base object-center"
                       />
                     </SwiperSlide>
                   ))}
-                </Swiper>
+                </Swiper>{' '}
+                <button className="car-modal-swiper-next group absolute top-1/2 -right-[10px] z-[15] hidden h-[60px] w-[60px] -translate-y-1/2 items-center justify-center disabled:cursor-not-allowed disabled:opacity-45 xl:flex">
+                  <ArrowNav
+                    className="fill-primary group-hover:fill-accent group-disabled:fill-primary"
+                    width="25"
+                    height="36"
+                  />
+                </button>
               </BaseModal>
             )}
           </>

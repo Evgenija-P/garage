@@ -5,20 +5,35 @@ type ModalWrapperProps = {
   closeModal: () => void;
   styles?: string;
   type: 'baseModal' | 'notification';
+  isShowBtnClose?: boolean;
 };
 
-const ModalWrapper = ({ children, closeModal, styles, type }: ModalWrapperProps) => {
-  const modalStyles = 'bg-bgColor/20 ${styles} inset-shadow bg-[rgba(45,45,45,0.04)] ';
+const ModalWrapper = ({
+  children,
+  closeModal,
+  styles,
+  type,
+  isShowBtnClose = true,
+}: ModalWrapperProps) => {
+  const modalStyles = `bg-bgColor/20 inset-shadow bg-[rgba(45,45,45,0.04)]`;
+
+  const ModalStyles = {
+    baseModal: 'h-[75%] w-[75%] p-10',
+    notification: `h-[322px] w-[510px] bg-bgColor p-[50px]`,
+  };
   return (
     <div
-      className={`relative mx-auto flex h-[75%] w-[75%] flex-col overflow-hidden rounded-base p-5 backdrop-blur-[15px]`}
+      className={`relative mx-auto flex flex-col overflow-hidden rounded-base backdrop-blur-[15px] ${ModalStyles[type]} ${styles}`}
     >
-      <button
-        className="group absolute top-0 right-0 flex h-10 w-10 items-center justify-center rounded-full bg-primary/80 hover:bg-accent/80"
-        onClick={closeModal}
-      >
-        <Cross className="fill-accent group-hover:fill-primary" />
-      </button>
+      {isShowBtnClose && (
+        <button
+          className="group absolute top-0 right-0 flex h-10 w-10 items-center justify-center rounded-full bg-primary/80 hover:bg-accent/80"
+          onClick={closeModal}
+        >
+          <Cross className="fill-accent group-hover:fill-primary" />
+        </button>
+      )}
+
       <div className="my-auto overflow-auto rounded-base">{children}</div>
     </div>
   );

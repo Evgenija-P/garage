@@ -13,9 +13,18 @@ type BaseModalProps = {
   isOpen: boolean;
   onClose: () => void;
   type: 'baseModal' | 'notification';
+  isShowBtnClose?: boolean;
+  modalWrapperStyles?: string;
 };
 
-const BaseModal = ({ children, isOpen, onClose, type }: BaseModalProps) => {
+const BaseModal = ({
+  children,
+  isOpen,
+  onClose,
+  type,
+  isShowBtnClose,
+  modalWrapperStyles,
+}: BaseModalProps) => {
   const [blockScroll, allowScroll] = useScrollBlock();
   const [mounted, setMounted] = useState(false);
   const [modalRoot, setModalRoot] = useState<HTMLElement | null>(null);
@@ -45,7 +54,12 @@ const BaseModal = ({ children, isOpen, onClose, type }: BaseModalProps) => {
   return createPortal(
     isOpen ? (
       <Overlay closeModal={closeModal}>
-        <ModalWrapper closeModal={closeModal} type={type}>
+        <ModalWrapper
+          closeModal={closeModal}
+          type={type}
+          isShowBtnClose={isShowBtnClose}
+          styles={modalWrapperStyles}
+        >
           {children}
         </ModalWrapper>
       </Overlay>
